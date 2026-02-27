@@ -15,8 +15,6 @@ mesh = SubResource("CapsuleMesh_xhfnw")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1045125332]
 shape = SubResource("CapsuleShape3D_0rwas")
 
-[node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=1911090892]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1, -2)
-
-[node name="Camera3D" type="Camera3D" parent="SpringArm3D" unique_id=2067000389]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=2067000389]
+transform = Transform3D(-1, -2.441013e-08, 8.529066e-08, 0, 1.0068324, 0.270561, -8.742278e-08, 0.27921933, -0.97561145, 0, 1.3230491, -2)
 current = true
