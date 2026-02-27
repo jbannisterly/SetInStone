@@ -3,12 +3,18 @@ extends CharacterBody3D
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
+const CAM_ROT = -0.001
+
+func _input(event: InputEvent) -> void:
+	if (event is InputEventMouseMotion):
+		global_rotation.y += event.relative.x * CAM_ROT
 
 func _ready() -> void:
 	
 	pass
 
 func _physics_process(delta: float) -> void:
+		
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
