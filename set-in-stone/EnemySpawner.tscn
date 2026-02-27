@@ -18,7 +18,7 @@ func _on_enemy_died():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	
-	if enemy_count < 10:
+	if enemy_count < 10 and randf() > 0.99:
 		var new_enemy = enemy.instantiate()
 		new_enemy.connect(\"died\", _on_enemy_died)
 		add_child(new_enemy)

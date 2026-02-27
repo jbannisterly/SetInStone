@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-const SPEED = 5
+const SPEED = 1
 var target = Vector3(0,0,0)
 var total_delta = 0
 var spawner = get_parent()
@@ -8,8 +8,7 @@ var spawner = get_parent()
 signal died
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	#add_user_signal("died")
+func _ready() -> void:	
 	pass # Replace with function body.
 
 
@@ -41,7 +40,5 @@ func _physics_process(delta: float) -> void:
 	
 	position.y = 0
 	
-	if randf() > 0.99:
-		die()
 	
 	pass

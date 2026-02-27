@@ -1,21 +1,36 @@
 extends CharacterBody3D
 
 
-const SPEED = 5.0
+const SPEED = 5.
 const JUMP_VELOCITY = 4.5
 const CAM_ROT = -0.001
 
 func _input(event: InputEvent) -> void:
 	if (event is InputEventMouseMotion):
 		global_rotation.y += event.relative.x * CAM_ROT
+	
+	if (event is InputEventMouseButton):
+		if (event.button_index == MOUSE_BUTTON_LEFT):
+			shoot()
 
 func _ready() -> void:
 	
 	pass
 
+func shoot() -> void:
+	var space_state = get_world_3d().direct_space_state
+	# use global coordinates, not local to node
+	var start = position
+	var end = position + transform.basis.z * 100;
+	print(start)
+	print(end)
+	var query = PhysicsRayQueryParameters3D.create(start, end)
+	var result = space_state.intersect_ray(query)
+	
+	if (result.collider.has_method("die")):
+		print(result.collider.die())
+
 func _physics_process(delta: float) -> void:
-		
-	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
@@ -53,3 +68,4 @@ func _physics_process(delta: float) -> void:
 		
 	if position.y < 0:
 		position.y = 0
+				
