@@ -27,8 +27,9 @@ func shoot() -> void:
 	var query = PhysicsRayQueryParameters3D.create(start, end)
 	var result = space_state.intersect_ray(query)
 	
-	if (result.collider.has_method("die")):
-		print(result.collider.die())
+	if (result.has("collider")):
+		if (result.collider.has_method("die")):
+			print(result.collider.die())
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
