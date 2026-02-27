@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cv4syy48sl7b5"]
+
+[ext_resource type="Script" uid="uid://bdq38cykcmcr5" path="res://overlay.gd" id="1_42nn7"]
+[ext_resource type="Script" uid="uid://dgwhljqcjdrso" path="res://score.gd" id="1_nv86q"]
+
+[node name="Overlay" type="Control" unique_id=254441940 node_paths=PackedStringArray("score")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_42nn7")
+score = NodePath("Score")
+
+[node name="Score" type="TextEdit" parent="." unique_id=1815615784]
+layout_mode = 0
+offset_right = 504.0
+offset_bottom = 200.0
+theme_override_colors/background_color = Color(0.24313726, 0.19215687, 0.02745098, 0)
+placeholder_text = "blah blah blah"
+script = ExtResource("1_nv86q")

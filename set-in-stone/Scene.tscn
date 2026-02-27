@@ -4,9 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://chv3rwgouf4iw" path="res://Player.tscn" id="1_t6lng"]
 [ext_resource type="PackedScene" uid="uid://x4i348ra710g" path="res://EnemySpawner.tscn" id="3_7mckg"]
 [ext_resource type="PackedScene" uid="uid://bb8jgu0c8wq5b" path="res://test.glb" id="3_j2eoc"]
+[ext_resource type="PackedScene" uid="uid://cv4syy48sl7b5" path="res://overlay.tscn" id="5_66br4"]
 
-[node name="Main" type="Node3D" unique_id=2051597188]
+[node name="Main" type="Node3D" unique_id=2051597188 node_paths=PackedStringArray("score_text")]
 script = ExtResource("1_7mckg")
+score_text = NodePath("Overlay")
 
 [node name="Player" parent="." unique_id=848546064 instance=ExtResource("1_t6lng")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1911283, 0)
@@ -18,3 +20,5 @@ transform = Transform3D(1, 1.7484555e-07, 0, 7.6921424e-08, -0.43993926, 0.89802
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9546417, -0.8591076, 0.15021873)
 
 [node name="Spawner" parent="." unique_id=1162535488 instance=ExtResource("3_7mckg")]
+
+[node name="Overlay" parent="." unique_id=254441940 instance=ExtResource("5_66br4")]
