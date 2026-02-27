@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://lbwfa76sgdfw"]
+
+[ext_resource type="PackedScene" uid="uid://chv3rwgouf4iw" path="res://Player.tscn" id="1_t6lng"]
+
+[node name="Node3D" type="Node3D" unique_id=2051597188]
+
+[node name="Node3D" parent="." unique_id=848546064 instance=ExtResource("1_t6lng")]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1383600645]
+transform = Transform3D(1, 0, 0, 0, 0.99975127, -0.022303458, 0, 0.022303458, 0.99975127, 0, 0.60986114, 1.1519041)
+current = true
