@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://lbwfa76sgdfw"]
 
+[ext_resource type="Script" uid="uid://c4yfssufhix77" path="res://main_scene.gd" id="1_7mckg"]
 [ext_resource type="PackedScene" uid="uid://chv3rwgouf4iw" path="res://Player.tscn" id="1_t6lng"]
-[ext_resource type="PackedScene" uid="uid://k5jmmgh42cyj" path="res://Enemy.tscn" id="2_4cvuw"]
+[ext_resource type="PackedScene" uid="uid://x4i348ra710g" path="res://EnemySpawner.tscn" id="3_7mckg"]
 [ext_resource type="PackedScene" uid="uid://bno832mf6qqvg" path="res://test.glb" id="3_j2eoc"]
 
 [node name="Main" type="Node3D" unique_id=2051597188]
+script = ExtResource("1_7mckg")
 
 [node name="Player" parent="." unique_id=848546064 instance=ExtResource("1_t6lng")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1911283, 0)
@@ -12,7 +14,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1911283, 0)
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1575724858]
 transform = Transform3D(1, 1.7484555e-07, 0, 7.6921424e-08, -0.43993926, 0.89802754, 1.5701612e-07, -0.89802754, -0.43993926, 0, 2, 0)
 
-[node name="Node3D" parent="." unique_id=409435434 instance=ExtResource("2_4cvuw")]
-
 [node name="test" parent="." unique_id=861193713 instance=ExtResource("3_j2eoc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9546417, -0.8591076, 0.15021873)
+
+[node name="Spawner" parent="." unique_id=1162535488 instance=ExtResource("3_7mckg")]
