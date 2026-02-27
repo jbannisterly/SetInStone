@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c3b3fqrek4e3" path="res://player_movement.gd" id="1_xhfnw"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_xhfnw"]
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_xhfnw"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0rwas"]
 
@@ -10,7 +10,13 @@
 script = ExtResource("1_xhfnw")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1756730682]
-mesh = SubResource("SphereMesh_xhfnw")
+mesh = SubResource("CapsuleMesh_xhfnw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1045125332]
 shape = SubResource("CapsuleShape3D_0rwas")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=1911090892]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1, -2)
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D" unique_id=2067000389]
+current = true
