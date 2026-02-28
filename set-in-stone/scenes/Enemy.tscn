@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://k5jmmgh42cyj"]
 
 [ext_resource type="Script" uid="uid://dl0kobhsryu7" path="res://scripts/enemy.gd" id="1_tt7e2"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_gqquq"]
+[ext_resource type="PackedScene" uid="uid://bgbtvytpur1dc" path="res://models/player.glb" id="2_55jtl"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tt7e2"]
 
@@ -11,8 +10,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49732715, 0)
 collision_layer = 2
 script = ExtResource("1_tt7e2")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=237588047]
-mesh = SubResource("BoxMesh_gqquq")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=545439492]
 shape = SubResource("CapsuleShape3D_tt7e2")
+
+[node name="player" parent="." unique_id=1031683628 instance=ExtResource("2_55jtl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.94802964, 0)
+
+[node name="Skeleton3D" parent="player/Armature" parent_id_path=PackedInt32Array(1031683628, 757794366) index="0" unique_id=522570492]
+bones/1/rotation = Quaternion(0.00812475, 0.017548015, -0.054553237, 0.9983237)
+bones/2/rotation = Quaternion(-0.2413079, 0.26262134, -0.614488, 0.7037082)
+bones/3/rotation = Quaternion(-0.672199, -0.0021146312, -0.08348055, 0.73564607)
+bones/4/rotation = Quaternion(-0.2217682, -0.2554347, 0.63472974, 0.6947591)
+bones/5/rotation = Quaternion(-0.4878482, -0.0049523525, 0.09183791, 0.86807)
+bones/7/rotation = Quaternion(-0.11600842, -0.397381, 0.8770928, -0.24359539)
+bones/8/rotation = Quaternion(0.24864067, -0.121680595, -0.21774746, 0.9359262)
+bones/9/rotation = Quaternion(-0.15089533, 0.29959863, 0.91906494, 0.2068597)
+bones/10/rotation = Quaternion(0.22837006, 0.1934698, 0.12628555, 0.9457634)
+
+[editable path="player"]

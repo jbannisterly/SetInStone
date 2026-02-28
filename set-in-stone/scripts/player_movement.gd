@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
 @export var gun: Node3D
+@export var animation: AnimationPlayer
 
 const SPEED = 5.
 const JUMP_VELOCITY = 4.5
@@ -51,14 +52,25 @@ func _physics_process(delta: float) -> void:
 	input_dir.y = 0
 	input_dir.z = 0
 	
+	var moving = false
+	 
 	if (Input.is_key_pressed(KEY_W)):
 		input_dir.z += 1
+		moving = true
 	if (Input.is_key_pressed(KEY_S)):
 		input_dir.z -= 1
+		moving = true
 	if (Input.is_key_pressed(KEY_D)):
 		input_dir.x -= 1
+		moving = true
 	if (Input.is_key_pressed(KEY_A)):
+		moving = true
 		input_dir.x += 1
+		
+	if moving:
+		animation.play("ArmatureAction")
+	else:
+		animation.pause()
 		
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.z)).normalized()
 	if direction:

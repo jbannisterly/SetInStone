@@ -4,18 +4,15 @@
 [ext_resource type="Script" uid="uid://csihjc0gb4ky8" path="res://scripts/camera_holder.gd" id="2_kpjcp"]
 [ext_resource type="PackedScene" uid="uid://dwmn7t7f0bgb0" path="res://models/gun.glb" id="3_3li8b"]
 [ext_resource type="Script" uid="uid://bsc64gvc37una" path="res://models/recoil.gd" id="4_mdl7e"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_xhfnw"]
+[ext_resource type="PackedScene" uid="uid://bgbtvytpur1dc" path="res://models/player.glb" id="5_qu4a1"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0rwas"]
 
-[node name="Player" type="CharacterBody3D" unique_id=848546064 node_paths=PackedStringArray("gun")]
+[node name="Player" type="CharacterBody3D" unique_id=848546064 node_paths=PackedStringArray("gun", "animation")]
 collision_mask = 255
 script = ExtResource("1_xhfnw")
 gun = NodePath("gun")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1756730682]
-mesh = SubResource("CapsuleMesh_xhfnw")
+animation = NodePath("player/AnimationPlayer")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1045125332]
 shape = SubResource("CapsuleShape3D_0rwas")
@@ -29,5 +26,24 @@ transform = Transform3D(-1, -2.336272e-08, 8.4243254e-08, 0, 0.96363044, 0.26723
 current = true
 
 [node name="gun" parent="." unique_id=1836605763 instance=ExtResource("3_3li8b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6243491, 0.17514366, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.090087414, 0.35387057, 0.02331245)
 script = ExtResource("4_mdl7e")
+
+[node name="player" parent="." unique_id=1031683628 instance=ExtResource("5_qu4a1")]
+transform = Transform3D(-0.99972737, 0, -0.023350414, 0, 1, 0, 0.023350414, 0, -0.99972737, 0, 0, 0)
+
+[node name="Skeleton3D" parent="player/Armature" parent_id_path=PackedInt32Array(1031683628, 757794366) index="0" unique_id=522570492]
+bones/1/rotation = Quaternion(0.01491298, 0.00439827, 0.0013068086, 0.99987835)
+bones/2/rotation = Quaternion(-0.2413079, 0.26262134, -0.614488, 0.7037082)
+bones/3/rotation = Quaternion(-0.672199, -0.0021146312, -0.08348055, 0.73564607)
+bones/4/rotation = Quaternion(-0.2217682, -0.2554347, 0.63472974, 0.6947591)
+bones/5/rotation = Quaternion(-0.4878482, -0.0049523525, 0.09183791, 0.86807)
+bones/7/rotation = Quaternion(0.04597517, -0.08640127, 0.961709, -0.256002)
+bones/8/rotation = Quaternion(0.17501819, -0.063283086, -0.19145614, 0.9636952)
+bones/9/rotation = Quaternion(-0.02857708, 0.09251098, 0.9765565, 0.1922567)
+bones/10/rotation = Quaternion(0.10236023, 0.03629701, 0.06767154, 0.9917789)
+
+[node name="Cube" parent="player/Armature/Skeleton3D" index="0" unique_id=272238942]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015087406, -1.359879, 0.645954)
+
+[editable path="player"]
