@@ -1,5 +1,6 @@
 extends CharacterBody3D
 
+@export var gun: Node3D
 
 const SPEED = 5.
 const JUMP_VELOCITY = 4.5
@@ -30,6 +31,8 @@ func shoot() -> void:
 	if (result.has("collider")):
 		if (result.collider.has_method("die")):
 			print(result.collider.die())
+			
+	gun.position.z = -0.3
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():

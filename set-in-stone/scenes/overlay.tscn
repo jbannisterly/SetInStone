@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cv4syy48sl7b5"]
 
-[ext_resource type="Script" uid="uid://bdq38cykcmcr5" path="res://overlay.gd" id="1_42nn7"]
-[ext_resource type="Script" uid="uid://dgwhljqcjdrso" path="res://score.gd" id="1_nv86q"]
+[ext_resource type="Script" uid="uid://bdq38cykcmcr5" path="res://scripts/overlay.gd" id="1_42nn7"]
+[ext_resource type="Script" uid="uid://dgwhljqcjdrso" path="res://scripts/score.gd" id="1_nv86q"]
 
 [node name="Overlay" type="Control" unique_id=254441940 node_paths=PackedStringArray("score")]
 layout_mode = 3

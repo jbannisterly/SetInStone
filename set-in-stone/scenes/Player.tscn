@@ -1,14 +1,18 @@
 [gd_scene format=3 uid="uid://chv3rwgouf4iw"]
 
-[ext_resource type="Script" uid="uid://c3b3fqrek4e3" path="res://player_movement.gd" id="1_xhfnw"]
-[ext_resource type="Script" uid="uid://csihjc0gb4ky8" path="res://camera_holder.gd" id="2_kpjcp"]
+[ext_resource type="Script" uid="uid://c3b3fqrek4e3" path="res://scripts/player_movement.gd" id="1_xhfnw"]
+[ext_resource type="Script" uid="uid://csihjc0gb4ky8" path="res://scripts/camera_holder.gd" id="2_kpjcp"]
+[ext_resource type="PackedScene" uid="uid://dwmn7t7f0bgb0" path="res://models/gun.glb" id="3_3li8b"]
+[ext_resource type="Script" uid="uid://bsc64gvc37una" path="res://models/recoil.gd" id="4_mdl7e"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_xhfnw"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0rwas"]
 
-[node name="Player" type="CharacterBody3D" unique_id=848546064]
+[node name="Player" type="CharacterBody3D" unique_id=848546064 node_paths=PackedStringArray("gun")]
+collision_mask = 255
 script = ExtResource("1_xhfnw")
+gun = NodePath("gun")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1756730682]
 mesh = SubResource("CapsuleMesh_xhfnw")
@@ -23,3 +27,7 @@ script = ExtResource("2_kpjcp")
 [node name="Camera3D" type="Camera3D" parent="CameraHolder" unique_id=2067000389]
 transform = Transform3D(-1, -2.336272e-08, 8.4243254e-08, 0, 0.96363044, 0.26723838, -8.742278e-08, 0.26723838, -0.96363044, 0, 1.3230491, -2)
 current = true
+
+[node name="gun" parent="." unique_id=1836605763 instance=ExtResource("3_3li8b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6243491, 0.17514366, 0)
+script = ExtResource("4_mdl7e")
